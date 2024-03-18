@@ -66,6 +66,7 @@ void ESDiag::draw() {
   TERN_(USE_Y_MIN, ES_LABEL(Y_MIN)); TERN_(USE_Y_MAX, ES_LABEL(Y_MAX));
   TERN_(USE_Z_MIN, ES_LABEL(Z_MIN)); TERN_(USE_Z_MAX, ES_LABEL(Z_MAX));
   TERN_(HAS_FILAMENT_SENSOR, draw_es_label(F(STR_FILAMENT)));
+  TERN_(HAS_FILAMENT_MOTION, draw_es_label(F(STR_FILAMENT_MOTION)));
   update();
 }
 
@@ -76,10 +77,10 @@ void ESDiag::update() {
   TERN_(USE_Y_MIN, ES_REPORT(Y_MIN)); TERN_(USE_Y_MAX, ES_REPORT(Y_MAX));
   TERN_(USE_Z_MIN, ES_REPORT(Z_MIN)); TERN_(USE_Z_MAX, ES_REPORT(Z_MAX));
   #if HAS_FILAMENT_SENSOR
-    #if PROUI_EX
-      draw_es_state(!FilamentSensorBase::poll_runout_states());
-    #else
-      draw_es_state(READ(FIL_RUNOUT1_PIN) != FIL_RUNOUT1_STATE);
+    draw_es_state(READ(FIL_RUNOUT1_PIN) == FIL_RUNOUT1_STATE);
+
+    #if HAS_FILAMENT_MOTION
+      draw_es_state(READ(FIL_MOTION1_PIN) == FIL_MOTION1_STATE);
     #endif
   #endif
   dwinUpdateLCD();

@@ -356,6 +356,7 @@
 #define STR_Z_PROBE                         "z_probe"
 #define STR_PROBE_EN                        "probe_en"
 #define STR_FILAMENT                        "filament"
+#define STR_FILAMENT_MOTION                 "filament_m"
 
 // General axis names
 #define STR_X "X"
