@@ -122,7 +122,7 @@
 //#define BLUETOOTH
 
 // Name displayed in the LCD "Ready" message and Info menu
-#define CUSTOM_MACHINE_NAME "Ender3V2-SKRME3V3-BLTUBL-  LA-MPC-IS"
+#define CUSTOM_MACHINE_NAME "Ender3V2-SKRME3V3-BLTUBL-LA-MPC-IS"
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like https://www.uuidgenerator.net/version4
