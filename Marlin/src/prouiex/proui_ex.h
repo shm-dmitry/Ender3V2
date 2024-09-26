@@ -35,6 +35,10 @@
 #if HAS_PROUI_MAXTEMP && DISABLED(HAS_HOTEND)
   #error "HAS_PROUI_MAXTEMP requires HAS_HOTEND."
 #endif
+#if (GRID_MAX_POINTS_X) > 9 || (GRID_MAX_POINTS_Y) > 9
+  #error "GRID_MAX_POINTS_X and GRID_MAX_POINTS_Y must be less than 10 for PROUI_EX."
+#endif
+
 
 #include "../core/types.h"
 
@@ -126,7 +130,11 @@ typedef struct { // Do not change this data structure
   int16_t x_max_pos  = DEF_X_MAX_POS;
   int16_t y_max_pos  = DEF_Y_MAX_POS;
   int16_t z_max_pos  = DEF_Z_MAX_POS;
-  float probezfix = TERN0(DEF_PROBEZFIX,DEF_PROBEZFIX);
+  #ifdef DEF_PROBEZFIX
+    float probezfix = DEF_PROBEZFIX;
+  #else
+    float probezfix = 0;
+  #endif
   uint16_t zprobefeedslow = DEF_Z_PROBE_FEEDRATE_SLOW;
   uint8_t multiple_probing = MULTIPLE_PROBING;
   bool Invert_E0 = DEF_INVERT_E0_DIR;

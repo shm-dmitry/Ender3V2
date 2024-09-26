@@ -1996,7 +1996,12 @@ void MarlinSettings::postprocess() {
         const char proui_data[proUIEx.eeprom_data_size] = { 0 };
         _FIELD_TEST(proui_data);
         EEPROM_READ(proui_data);
-        if (!validating) proUIEx.copySettingsFrom(proui_data);
+        if (!validating) {
+          proUIEx.copySettingsFrom(proui_data);
+          #if ALL(DWIN_LCD_PROUI, HAS_MESH)
+            meshViewer.meshfont = TERN(TJC_DISPLAY, font8x16, font6x12);
+          #endif
+        }
         #if ALL(DWIN_LCD_PROUI, HAS_MESH)
           EEPROM_READ(meshViewer.meshmode);
         #endif
@@ -2058,7 +2063,7 @@ void MarlinSettings::postprocess() {
 
         #if HAS_SCARA_OFFSET
           EEPROM_READ(scara_home_offset);
-        #elsif HAS_HOME_OFFSET
+        #elif HAS_HOME_OFFSET
           EEPROM_READ(home_offset);
         #endif
       }
