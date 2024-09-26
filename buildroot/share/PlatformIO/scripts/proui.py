@@ -1,8 +1,8 @@
 # ------------------------------------------------------------------------------
 # VSCode script for the Professional Firmware
 # URL: https://github.com/mriscoc/Marlin_Ender3v2/releases
-# Version: 3.1
-# Date: 2023/10/28
+# Version: 3.2
+# Date: 2024/07/17
 # Author: Miguel Risco-Castillo
 # ------------------------------------------------------------------------------
 
@@ -78,4 +78,12 @@ if "MARLIN_FEATURES" in env:
 #Copy correct library file
   if prouiex or dwin:
     print('ProUI detected')
-    shutil.copy(libpath+arch+'libproui_'+lev+'_'+ui+'.a', libfile)
+    libdestfile = libpath+arch+'libproui_'+lev+'_'+ui+'.a'
+
+  if os.path.exists(libdestfile):
+    shutil.copy(libdestfile, libfile)
+  else:
+    print ("Library file not found, possibly unsupported hardware configuration")
+    exit()
+
+    
