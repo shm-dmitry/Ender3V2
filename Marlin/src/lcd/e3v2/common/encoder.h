@@ -53,6 +53,9 @@ void encoderConfiguration();
 // Analyze encoder value and return state
 EncoderState encoderReceiveAnalyze();
 
+// Smooth encoder state for menu items
+EncoderState get_encoder_menuitems();
+
 inline EncoderState get_encoder_state() {
   static millis_t Encoder_ms = 0;
   const millis_t ms = millis();
