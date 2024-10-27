@@ -1351,7 +1351,7 @@
  * The probe replaces the Z-MIN endstop and is used for Z homing.
  * (Automatically enables USE_PROBE_FOR_Z_HOMING.)
  */
-#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
+//#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN  // Manual mesh not have a probe
 
 // Force the use of the probe for Z-axis homing
 //#define USE_PROBE_FOR_Z_HOMING  // Manual mesh not have a probe
@@ -1667,10 +1667,10 @@
 #define Z_PROBE_LOW_POINT          -2 // (mm) Farthest distance below the trigger-point to go before stopping
 
 // For M851 provide ranges for adjusting the X, Y, and Z probe offsets
-//#define PROBE_OFFSET_XMIN -50   // (mm)
-//#define PROBE_OFFSET_XMAX  50   // (mm)
-//#define PROBE_OFFSET_YMIN -50   // (mm)
-//#define PROBE_OFFSET_YMAX  50   // (mm)
+#define PROBE_OFFSET_XMIN -100   // (mm)  // MRiscoC increase compatibility with some extruder/probe combinations
+#define PROBE_OFFSET_XMAX  100   // (mm)  // MRiscoC increase compatibility with some extruder/probe combinations
+#define PROBE_OFFSET_YMIN -100   // (mm)  // MRiscoC increase compatibility with some extruder/probe combinations
+#define PROBE_OFFSET_YMAX  100   // (mm)  // MRiscoC increase compatibility with some extruder/probe combinations
 //#define PROBE_OFFSET_ZMIN -20   // (mm)
 //#define PROBE_OFFSET_ZMAX  20   // (mm)
 

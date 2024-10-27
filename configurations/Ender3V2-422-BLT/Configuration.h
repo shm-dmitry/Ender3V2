@@ -1667,10 +1667,10 @@
 #define Z_PROBE_LOW_POINT          -3 // (mm) Farthest distance below the trigger-point to go before stopping  // MRiscoC allows reach lower points
 
 // For M851 provide ranges for adjusting the X, Y, and Z probe offsets
-//#define PROBE_OFFSET_XMIN -50   // (mm)
-//#define PROBE_OFFSET_XMAX  50   // (mm)
-//#define PROBE_OFFSET_YMIN -50   // (mm)
-//#define PROBE_OFFSET_YMAX  50   // (mm)
+#define PROBE_OFFSET_XMIN -100   // (mm)  // MRiscoC increase compatibility with some extruder/probe combinations
+#define PROBE_OFFSET_XMAX  100   // (mm)  // MRiscoC increase compatibility with some extruder/probe combinations
+#define PROBE_OFFSET_YMIN -100   // (mm)  // MRiscoC increase compatibility with some extruder/probe combinations
+#define PROBE_OFFSET_YMAX  100   // (mm)  // MRiscoC increase compatibility with some extruder/probe combinations
 //#define PROBE_OFFSET_ZMIN -20   // (mm)
 //#define PROBE_OFFSET_ZMAX  20   // (mm)
 
