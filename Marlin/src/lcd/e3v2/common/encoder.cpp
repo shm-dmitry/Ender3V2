@@ -175,6 +175,8 @@ EncoderState encoderReceiveAnalyze() {
   return temp_diffState;
 }
 
+EncoderState get_encoder_menuitems() { return TERN(SMOOTH_ENCODER_MENUITEMS, get_encoder_state(), encoderReceiveAnalyze()); }
+
 #if PIN_EXISTS(LCD_LED)
 
   // Take the low 24 valid bits  24Bit: G7 G6 G5 G4 G3 G2 G1 G0 R7 R6 R5 R4 R3 R2 R1 R0 B7 B6 B5 B4 B3 B2 B1 B0
