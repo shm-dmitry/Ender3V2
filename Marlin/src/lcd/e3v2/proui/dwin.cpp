@@ -2287,9 +2287,9 @@ void applyMove() {
 #endif
 
 #if HAS_BED_PROBE
-  void setProbeOffsetX() { setPFloatOnClick(-60, 60, UNITFDIGITS, TERN(PROUI_EX, proUIEx.applyPhySet, nullptr)); }
-  void setProbeOffsetY() { setPFloatOnClick(-60, 60, UNITFDIGITS, TERN(PROUI_EX, proUIEx.applyPhySet, nullptr)); }
-  void setProbeOffsetZ() { setPFloatOnClick(-10, 10, 2); }
+  void setProbeOffsetX() { setPFloatOnClick(PROBE_OFFSET_XMIN, PROBE_OFFSET_XMAX, UNITFDIGITS, TERN(PROUI_EX, proUIEx.applyPhySet, nullptr)); }
+  void setProbeOffsetY() { setPFloatOnClick(PROBE_OFFSET_YMIN, PROBE_OFFSET_YMAX, UNITFDIGITS, TERN(PROUI_EX, proUIEx.applyPhySet, nullptr)); }
+  void setProbeOffsetZ() { setPFloatOnClick(PROBE_OFFSET_ZMIN, PROBE_OFFSET_ZMAX, 2); }
 
   #if PROUI_EX
     void setProbeZSpeed()  { setPIntOnClick(60, Z_PROBE_FEEDRATE_FAST); }

@@ -3307,7 +3307,11 @@ void MarlinSettings::reset() {
       #endif
     #endif
     #if HAS_BED_PROBE
-      PRO_data.probezfix = TERN0(DEF_PROBEZFIX, DEF_PROBEZFIX);
+      #ifdef DEF_PROBEZFIX
+        PRO_data.probezfix = DEF_PROBEZFIX;
+      #else 
+        PRO_data.probezfix = 0;
+      #endif
       PRO_data.zprobefeedslow = DEF_Z_PROBE_FEEDRATE_SLOW;
       PRO_data.multiple_probing = MULTIPLE_PROBING;
     #endif
